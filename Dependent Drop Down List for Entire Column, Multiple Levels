@@ -1,0 +1,38 @@
+var ws = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("master")
+var wsOptions = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("options");
+var options = wsOptions.getRange(2,1,wsOptions.getLastRow()-1, 3).getValue();
+
+
+function MultipleDropDown() {
+
+    var list = ["a","b","g"];
+    var cell = ws.getRange("C2");
+    applyValidationToCell(list,cell);
+
+}   
+
+function onEdit(activeCell){
+   var activeCell = ws.getActiveCell();
+   var val = activeCell.getValue();
+   var r = activeCell.getRow();
+   var c = activeCell.getColumn();
+   var wsName = activeCell.getSheet().getName();
+   if(wsName == "master" && c === 1 && r >1){
+    ws.getRange(r,2).setValue(val);
+   }
+}
+
+
+function applyValidationToCell(list,cell){
+
+    var list = ["a","b","g"];
+    var cell = ws.getRange("C2");
+    var rule = SpreadsheetApp
+    .newDataValidation()
+    .requireValueInList(list)
+    .setAllowInvalid(false)
+    .build();
+
+    cell.setDataValidation(rule);
+  
+}
