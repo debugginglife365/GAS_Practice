@@ -1,0 +1,10 @@
+ function ClearTheMess(){
+
+   var app = SpreadsheetApp;
+   var activeSheet = app.getActiveSpreadsheet().getActiveSheet();
+   activeSheet.getRange("A1:F11").clearContent();
+
+ }
+
+// https://www.youtube.com/watch?v=LiKF6Vq3P-s&list=PLv9Pf9aNgemv62NNC5bXLR0CzeaIj5bcw&index=4
+// https://script.google.com/u/1/home/projects/1PMUEERNbeYx9zHbjuOKs5u6-UT7PTKQcmm6Dqfv3IBT_WoS1esGOq8rm/edit
