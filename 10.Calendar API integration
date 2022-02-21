@@ -1,0 +1,36 @@
+function getEvents() {
+  
+  var ss = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var cal = CalendarApp.getCalendarById("k.joshua8971@gmail.com");
+  var events =  cal.getEvents(new Date("01/01/2020 12:00 AM "), new Date("03/01/2021 12:00 AM"));
+  
+  var lr = ss.getLastRow();
+  ss.getRange(2,1,lr-1,5).clearContent();
+
+  for(var i = 0; i < events.length; i++){ 
+
+    var title = events[i].getTitle();
+    var sd = events[i].getStartTime();
+    var ed = events[i].getEndTime();
+    var loc = events[i].getLocation();
+    var des = events[i].getDescription();
+
+    // Logger.log(title);
+    ss.getRange(i+2,1).setValue(title);
+    ss.getRange(i+2,2).setValue(sd);
+    ss.getRange(i+2,2).setNumberFormat("mm/dd/yyy h:mm:ss AM/PM");
+    ss.getRange(i+2,3).setValue(ed);
+    ss.getRange(i+2,3).setNumberFormat("mm/dd/yyy h:mm:ss AM/PM");
+    ss.getRange(i+2,4).setValue(loc);
+    ss.getRange(i+2,5).setValue(des);
+    
+
+
+  }
+
+
+
+}
+
+// https://www.youtube.com/watch?v=qXG-i_sG8CI&list=PLv9Pf9aNgemv62NNC5bXLR0CzeaIj5bcw&index=10
+// https://script.google.com/u/1/home/projects/1PMUEERNbeYx9zHbjuOKs5u6-UT7PTKQcmm6Dqfv3IBT_WoS1esGOq8rm/edit
