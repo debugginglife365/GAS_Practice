@@ -1,0 +1,32 @@
+/**
+ * Multiplies the given number by 5 
+ * 
+ * @param x A number that will be mutiplied
+ * @customfunction
+ */
+
+function MULTIPLYBY5(x) { 
+
+  var result = x * 5; 
+
+  return result;
+
+}
+
+/**
+ * Multiplies 2 numbers
+ * 
+ * @param arg1 one of the numbers for multiplication
+ * @param arg2 second of the numbers for multiplication
+ * @customfunction
+ */
+function MULTIPLY2NUMBERS(arg1,arg2) { 
+
+  var result = arg1 * arg2; 
+
+  return result;
+
+}
+
+
+// https://www.youtube.com/watch?v=SUs74nwFMFY&list=PLv9Pf9aNgemv62NNC5bXLR0CzeaIj5bcw&index=5
