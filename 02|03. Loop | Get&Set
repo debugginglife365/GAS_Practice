@@ -1,0 +1,35 @@
+function Practice2() {
+  
+  var app = SpreadsheetApp;
+  // Get current active sheet
+  var activeSheet = app.getActiveSpreadsheet().getActiveSheet();
+  // var someCell = activeSheet.getRange(8,1).getValue();
+  // someCell = someCell+5;
+  // activeSheet.getRange(8,2).setValue(someCell);
+
+  Logger.clear();
+  //Simple for loops
+  /*
+  // For 은 반복(루프)을 원할 때 사용한다. 
+  for(var i=8;i<150;i++) { 
+    var someCell = activeSheet.getRange(i,1).getValue();
+    someCell = someCell+5;
+    activeSheet.getRange(i,2).setValue(someCell);
+
+  }
+  */
+
+  // select a sheet by name 
+  var targetSheet = app.getActiveSpreadsheet().getSheetByName("Sheet3");
+  targetSheet.getRange(1,1).setValue(7);
+
+  var tempNumber = targetSheet.getRange(1,1).getValue();
+
+  var secondSheet = app.getActiveSpreadsheet().getSheetByName("Sheet3");
+  secondSheet.getRange(10,1).setValue(tempNumber);
+  
+}
+
+// https://www.youtube.com/watch?v=IcLBkJYP6Pk&list=PLv9Pf9aNgemv62NNC5bXLR0CzeaIj5bcw&index=2
+// https://www.youtube.com/watch?v=_ulFKsrpxi8&list=PLv9Pf9aNgemv62NNC5bXLR0CzeaIj5bcw&index=3
+// https://script.google.com/u/1/home/projects/1PMUEERNbeYx9zHbjuOKs5u6-UT7PTKQcmm6Dqfv3IBT_WoS1esGOq8rm/edit
