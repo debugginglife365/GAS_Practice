@@ -1,0 +1,15 @@
+function myFunction() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+
+  ss.getRange("D2").setFormula("=(A2+B2)*C2");
+
+  var lr = ss.getLastRow();
+  var fillDownRange = ss.getRange(2,4,lr-1);
+
+  ss.getRange("D2").copyTo(fillDownRange);
+  
+
+}
+
+// https://www.youtube.com/watch?v=cCBtsQGtzoQ&list=PLv9Pf9aNgemv62NNC5bXLR0CzeaIj5bcw&index=9 
+// https://script.google.com/u/1/home/projects/1PMUEERNbeYx9zHbjuOKs5u6-UT7PTKQcmm6Dqfv3IBT_WoS1esGOq8rm/edit
