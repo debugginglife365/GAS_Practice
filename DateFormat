@@ -1,0 +1,7 @@
+function DateFormat() {
+  var spreadsheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Response RAW");
+  spreadsheet.getRange('AH:AN').activate();
+  spreadsheet.getActiveRangeList().setNumberFormat('YYYY-MM-DD');
+};
+
+// Macro GAS ! I've added specific sheet name ".getSheetByName("Response RAW")"
