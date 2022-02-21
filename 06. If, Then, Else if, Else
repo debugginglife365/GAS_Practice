@@ -1,32 +1,26 @@
-/**
- * Multiplies the given number by 5 
- * 
- * @param x A number that will be mutiplied
- * @customfunction
- */
+function myFunction() {
+  
+  var app = SpreadsheetApp;
+  var activeSheet = app.getActiveSpreadsheet().getActiveSheet();
 
-function MULTIPLYBY5(x) { 
 
-  var result = x * 5; 
+  // i is our current row index 
+  for(var i = 7; i <13; i ++) {
 
-  return result;
 
-}
+      var workingCell = activeSheet.getRange(i,1).getValue();
 
-/**
- * Multiplies 2 numbers
- * 
- * @param arg1 one of the numbers for multiplication
- * @param arg2 second of the numbers for multiplication
- * @customfunction
- */
-function MULTIPLY2NUMBERS(arg1,arg2) { 
+      if(workingCell >=75) {
+        activeSheet.getRange(i,2).setValue("High");
+      } else if(workingCell >25) {
+        activeSheet.getRange(i,2).setValue("Middle");
+      } else {
+        activeSheet.getRange(i,2).setValue("Low");
 
-  var result = arg1 * arg2; 
+    }
 
-  return result;
+  }
 
 }
 
-
-// https://www.youtube.com/watch?v=SUs74nwFMFY&list=PLv9Pf9aNgemv62NNC5bXLR0CzeaIj5bcw&index=5
+// https://www.youtube.com/watch?v=vHZAQ-QBoPY&list=PLv9Pf9aNgemv62NNC5bXLR0CzeaIj5bcw&index=6
