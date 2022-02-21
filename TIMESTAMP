@@ -1,0 +1,26 @@
+function onEdit(e){ 
+
+addTimestamp(e); 
+
+}
+
+
+
+function onEdit(e) { 
+
+    var startRow =2; 
+    var targetColumn = 2; 
+    var ws ="RCA_Review"; 
+
+    var row = e.range.getRow(); 
+    var col = e.range.getColumn(); 
+    
+    if(col === targetColumn && row >= startRow && e.source.getActiveSheet().getName() === ws ){
+        
+        var currentDate = new Date(new Date().getFullYear(),new Date().getMonth() , new Date().getDate()); 
+        if(e.source.getActiveSheet().getRange(row,28).getValue()==""){
+          e.source.getActiveSheet().getRange(row,28).setValue(currentDate); 
+           }
+     }
+} 
+
