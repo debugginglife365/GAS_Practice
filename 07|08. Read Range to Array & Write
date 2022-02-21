@@ -1,0 +1,35 @@
+function myFunction() {
+  
+   var app = SpreadsheetApp; 
+   var activeSheet = app.getActiveSpreadsheet().getActiveSheet();
+
+   var temp = activeSheet.getRange("A7:B13").getValues();
+
+  Logger.log(temp);
+
+
+  //이렇게 할 수 있을 것 같아서 해본 결과임.근데 영상에서도 동일하게 나옴. 
+  // activeSheet.getRange("C7:D13").setValues(temp);
+
+
+  /*
+  var arr = [ 
+    [1.0, "Low"],
+    [2.0, "Low"], 
+    [30.0, "Middle"], 
+    [28.0, "Middle"], 
+    [30.0, "Middle"], 
+    [60.0, "Middle"],
+    [30.0, "Middle"]
+    
+  ];
+
+  activeSheet.getRange("F7:G13").setValues(arr);
+
+  */
+
+
+} 
+
+// https://www.youtube.com/watch?v=v1nvDkDY-3g&list=PLv9Pf9aNgemv62NNC5bXLR0CzeaIj5bcw&index=7
+// https://script.google.com/u/1/home/projects/1PMUEERNbeYx9zHbjuOKs5u6-UT7PTKQcmm6Dqfv3IBT_WoS1esGOq8rm/edit
