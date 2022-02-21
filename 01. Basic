@@ -1,0 +1,16 @@
+function learnBasics() {
+  
+  var app = SpreadsheetApp;
+  var ss = app.getActiveSpreadsheet();
+  var activeSheet = ss.getActiveSheet();
+
+  // // 행 2, 열 2인 지점에서 시작하고 그 지점에서 부터 행 3+, 열 +4 인 (마치 테이블 같은)부분을 채운다? 
+  // activeSheet.getRange(2,2,3,4).setValue("Serious Stuff");
+
+  var tempText = activeSheet.getRange(4,1).getValue();
+  activeSheet.getRange(6,2).setValue(tempText);
+
+}
+
+// https://www.youtube.com/watch?v=aPJ-2U45BpA&list=PLv9Pf9aNgemv62NNC5bXLR0CzeaIj5bcw&index=
+// https://script.google.com/u/1/home/projects/1PMUEERNbeYx9zHbjuOKs5u6-UT7PTKQcmm6Dqfv3IBT_WoS1esGOq8rm/edit
