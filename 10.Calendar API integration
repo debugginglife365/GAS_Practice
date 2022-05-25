@@ -1,9 +1,18 @@
+function onOpen(e) {
+  SpreadsheetApp.getUi()
+      .createMenu('My Menu')
+      .addItem('getEvents', 'getEvents')
+      .addItem('addEvent', 'addEvent')
+      .addToUi();
+}
+
+
 function getEvents() {
   
-  var ss = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  var cal = CalendarApp.getCalendarById("k.joshua8971@gmail.com");
-  var events =  cal.getEvents(new Date("01/01/2020 12:00 AM "), new Date("03/01/2021 12:00 AM"));
-  
+  var ss = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("getEvents");
+  var cal = CalendarApp.getCalendarById("c_188algm94lcj4pa6aihmdu0g44d844gactnmuprcckn66rrd@group.calendar.google.com");
+  var events =  cal.getEvents(new Date("01/01/2022"), new Date("01/01/2023"));
+
   var lr = ss.getLastRow();
   ss.getRange(2,1,lr-1,5).clearContent();
 
@@ -23,14 +32,30 @@ function getEvents() {
     ss.getRange(i+2,3).setNumberFormat("mm/dd/yyy h:mm:ss AM/PM");
     ss.getRange(i+2,4).setValue(loc);
     ss.getRange(i+2,5).setValue(des);
-    
-
-
   }
-
-
-
 }
 
+function addEvent (){
+
+  var ss = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("addEvent");
+  var lr = ss.getLastRow()
+  var cal = CalendarApp.getCalendarById("c_188algm94lcj4pa6aihmdu0g44d844gactnmuprcckn66rrd@group.calendar.google.com");
+
+
+  var data = ss.getRange("A2:E" + lr).getValues();
+  
+  for(var i = 0 ; i <data.length; i ++){
+    
+    cal.createAllDayEvent(data[i][0],data[i][1],data[i][2],
+    {location:data[i][3],
+    guests:data[i][4],
+    description:data[i][5],
+    sendInvites:true})
+  }
+}
+
+
+
+
 // https://www.youtube.com/watch?v=qXG-i_sG8CI&list=PLv9Pf9aNgemv62NNC5bXLR0CzeaIj5bcw&index=10
-// https://script.google.com/u/1/home/projects/1PMUEERNbeYx9zHbjuOKs5u6-UT7PTKQcmm6Dqfv3IBT_WoS1esGOq8rm/edit
+// https://www.youtube.com/watch?v=w4oUjDC9L6A&list=PLv9Pf9aNgemv62NNC5bXLR0CzeaIj5bcw&index=11
